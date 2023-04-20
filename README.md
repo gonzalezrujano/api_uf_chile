@@ -49,7 +49,7 @@ más information sobre su uso consulte la página que corresponda al linter que 
 
     Renombrar archivos 
     1. instance/envs/micro.example.env -> instance/envs/micro.env
-    2. instance/etc/config_dev.yml -> instance/etc/config.yml
+    2. instance/etc/config.example.yml -> instance/etc/config.yml
     
 3.  Luego localice el archivo create_docker_image.sh y ejecutelo.
  
