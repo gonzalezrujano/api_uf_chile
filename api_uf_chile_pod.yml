@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: api-uf-chile
+spec:
+  containers:
+    - image: mic_serv_uf_chile:latest
+  name: api-uf-chile
+  ports:
+    - containerPort: 5200
+      name: http
+      protocol: TCP

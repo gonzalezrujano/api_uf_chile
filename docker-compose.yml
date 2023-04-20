@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  micro:
+    container_name: mic_serv_uf_chile
+    image: mic_serv_uf_chile:latest
+    tty: true
+    ports:
+      - "${MAP_PORT}:${EXPOSE_PORT}"
+    env_file: ./instance/envs/micro.env
+    volumes:
+      - ./instance/etc/:/instance/etc
+      - ./mic_serv_uf_chile:/.venv/lib/python3.9/site-packages/mic_serv_uf_chile
+    networks:
+      - app_network
+    command: bash -c "mic_serv_uf_chile web run"
+
+networks:
+  app_network:
+    name: app_network

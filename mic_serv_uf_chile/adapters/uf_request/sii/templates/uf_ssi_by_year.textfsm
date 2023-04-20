@@ -1,0 +1,13 @@
+Value DAY (\d+)
+Value UF (\S+)
+
+Start
+  ^\s*<div class='meses' id='mes_all'> -> Day
+
+Day
+  ^\s*<th style='text-align:center;'> -> Continue.Record
+  ^\s*<th style='text-align:center;'>${DAY}</th> -> Data
+
+Data
+  ^\s*<td style='text-align:right;'>${UF}</td> -> Record
+  ^\s*</tr> -> Day

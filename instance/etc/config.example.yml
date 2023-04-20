@@ -1,0 +1,37 @@
+environment: dev
+info:
+  name: "API UF Chile SII"
+  version: "1.0.0"
+  description: "Servicio de consulta de Unidad de Fomento"
+
+web:
+  INSTANCE_PATH: '/instance'
+  HOST: '0.0.0.0'
+  PORT: '5200'
+  ENV: 'development'
+  SECRET_KEY: 'Set_a_very_dificult_key'
+  DEBUG: true
+  BUNDLE_ERRORS: true
+  PRESERVE_CONTEXT_ON_EXCEPTION: false
+
+db:
+  host: 'redis'
+  port: '6379'
+  db: 0
+
+logging:
+  version: 1
+  formatters:
+    default:
+      format: '[%(asctime)s] %(levelname)s in %(module)s: %(message)s'
+  handlers:
+    wsgi:
+      class: 'logging.StreamHandler'
+      level: INFO
+      stream: 'ext://flask.logging.wsgi_errors_stream'
+      formatter: 'default'
+  root:
+    level: 'INFO'
+    handlers:
+      - wsgi
+
